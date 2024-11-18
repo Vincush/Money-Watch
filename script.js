@@ -12,8 +12,14 @@ document.getElementById("salaryForm").addEventListener("submit", function (event
   // Startguthaben setzen
   let earnings = startBalance;
 
-  // Ausgabe aktualisieren
+  // Ausgabe anzeigen und Formular ausblenden
+  document.getElementById("output").style.display = "block";
+  document.getElementById("salaryForm").style.display = "none";
+
+  // Anzeige aktualisieren
   const earningsSpan = document.getElementById("earnings");
   setInterval(() => {
     earnings += earningsPerSecond;
-   
+    earningsSpan.textContent = earnings.toFixed(2); // Auf zwei Dezimalstellen begrenzen
+  }, 1000);
+});
